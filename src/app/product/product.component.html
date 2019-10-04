@@ -1,0 +1,15 @@
+<h3 *ngIf="products; else noProduct">{{title}}</h3>
+<div class="row">
+<ng-template #noProduct>
+    Bu Kategoride ürün yoktur.
+</ng-template>
+<div *ngFor= "let elaman of products"class="card" style="width: 19rem;">
+    <img [src]="elaman.imageUrl" class="card-img-top"  alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{elaman.name | uppercase}}  {{elaman.price | currency:'TRY  ' }}</h5>
+      <p class="card-text">{{elaman.description}}</p>
+      <a (click)="addToCart(elaman)"class="btn btn-primary">Sepete Ekle</a>
+    </div>
+  </div>
+  
+</div>
